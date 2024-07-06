@@ -8,7 +8,7 @@ const usersRouter=require("./routes/usersRouter");
 const productsRouter=require("./routes/produtsRouter");
 
 const db=require("./config/mongoose-connection")
-
+require("dotenv").config();
 app.set("view engine",'ejs');
 
 app.use(cookieParser());
