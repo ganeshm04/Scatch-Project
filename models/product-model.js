@@ -8,9 +8,9 @@ const productSchema=mongoose.Schema({
         type:Number,
         default:0,
     },
-    bgcolor:string,
-    panelcolor:string,
-    textcolor:string,
+    bgcolor:String,
+    panelcolor:String,
+    textcolor:String,
 });
 
 

@@ -8,9 +8,9 @@ router.get("/",function(req,res){
 });
 
 if(process.env.NODE_ENV === "development"){
-    console.log("hey from process");
+    // console.log("hey from process");
     router.post("/create", async function(req,res){
-        let owners=await ownerModel.findOne();
+        let owners=await ownerModel.find();
         if(owners.length>0){
             return res
             .status(503)
@@ -27,6 +27,15 @@ if(process.env.NODE_ENV === "development"){
         
     });
 }
+
+
+router.get("/admin",function(req,res){
+   let success= req.flash("success")
+    res.render("createproducts",{success});
+    // res.send("hey it's working")
+});
+
+
 
 
 

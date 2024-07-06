@@ -12,7 +12,7 @@ const { generateToken } = require("../utils/generateToken");
 
 module.exports.registerUser =async function (req, res) {
     try {
-        let { email, password, fullname, contact } = req.body;
+        let { email, password, fullname,contact } = req.body;
         // joyy {want to study} based validation that all inputs are required
         // mongodb doen't care of missing fields still runs
 
@@ -31,6 +31,8 @@ module.exports.registerUser =async function (req, res) {
                         });
                         let token = generateToken(CreatedUser);
                         res.cookie("token", token);
+                        // res.send("user created succesfully");
+                        res.redirect("/shop")
                     }
                 });
             });
@@ -41,7 +43,8 @@ module.exports.registerUser =async function (req, res) {
         console.log(error.message);
     }
 }
-module.exports.registerUser =async function (req, res) {
+
+module.exports.loginUser =async function (req, res) {
     try {
         let { email, password } = req.body;
         // joyy {want to study} based validation that all inputs are required
@@ -52,9 +55,10 @@ module.exports.registerUser =async function (req, res) {
         else {
            bcrypt.compare(password,user.password,function(err,result){
             if(result===true){
-                let token = generateToken(CreatedUser);
+                let token = generateToken(user);
                 res.cookie("token", token);
-                res.send("login successfull");
+                // res.send("login successfull");
+                res.redirect("/shop")
             }
             else{
                 res.send("password is incorrect")
@@ -67,3 +71,14 @@ module.exports.registerUser =async function (req, res) {
         console.log(error.message);
     }
 }
+
+
+module.exports.logoutUser =async function (req, res) {
+    try {
+        res.cookie("token","");
+        res.redirect("/");
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
