@@ -51,19 +51,19 @@ Owner Model
 
 Routes
 --------------------------------------------------------
-/                        ->Register User and Login
-/shop                    ->Display of products
-/cart                    ->Added products to buy
-/addtocart/product_id    ->to add products to cart
+* /                        ->Register User and Login
+* /shop                    ->Display of products
+* /cart                    ->Added products to buy
+* /addtocart/product_id    ->to add products to cart
 
-/users/register          -> To register new User
-/users/login             -> To Login for existing user
-/users/logout            -> To Logout
+* /users/register          -> To register new User
+* /users/login             -> To Login for existing user
+* /users/logout            -> To Logout
 
-/owners/create           ->To create Owner (seller)
-/owners/admin            ->To add products to available for users
+* /owners/create           ->To create Owner (seller)
+* /owners/admin            ->To add products to available for users
 
-/products/create         ->To able Owners to add Products
+* /products/create         ->To able Owners to add Products
 
 
 
